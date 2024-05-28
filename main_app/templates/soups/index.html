@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>All Soups</h1>
+
+<div class="soup-list">
+    {% for soup in soups %}
+        <div class="soup">
+            <span class="soup-name">{{ soup.name }}</span>
+            <p>Origin: {{ soup.origin }}</p>
+            <p>Ingredients:</p>
+            <ul>
+                {% for ing in soup.ingredients %}
+                    <li>{{ ing }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endfor %}
+</div>
+
+{% endblock %}
