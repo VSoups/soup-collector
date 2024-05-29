@@ -7,11 +7,12 @@
     {% for soup in soups %}
         <div class="soup box">
             <span class="soup-name">{{ soup.name }}</span>
+            <hr />
             <p>Origin: {{ soup.origin }}</p>
             <p>Ingredients:</p>
             <ul>
                 {% for ing in soup.ingredients %}
-                    <li>{{ ing }}</li>
+                    <li>- {{ ing }}</li>
                 {% endfor %}
             </ul>
         </div>
