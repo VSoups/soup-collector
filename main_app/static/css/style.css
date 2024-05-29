@@ -30,6 +30,10 @@ h3 {
     align-items: center;
 }
 
+#soup-index {
+    margin-bottom: 1rem;
+}
+
 .box {
     width: 20rem;
     text-align: center;
@@ -38,4 +42,8 @@ h3 {
 
 .box > hr {
     margin: 10px;
+}
+
+.soup-detail {
+    margin: 0 auto;
 }

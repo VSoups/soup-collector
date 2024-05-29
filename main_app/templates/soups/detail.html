@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1 class="title is-1">{{ soup.name }} Details</h1>
+
+<div class="soup-detail box">
+    <p>Origin: {{ soup.origin }}</p>
+    <p>Temperature: {{ soup.temperature }}</p>
+    <p>Broth: {{ soup.broth }}</p>
+</div>
+
+{% endblock %}
