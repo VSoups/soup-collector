@@ -1,0 +1,15 @@
+#footer-content {
+    position: absolute;
+    color: aqua;
+    bottom: 0;
+    width: 100%;
+    text-align: right;
+}
+
+body {
+    background-color: red;
+}
+
+h1 {
+    text-decoration: underline;
+}

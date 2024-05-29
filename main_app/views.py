@@ -1,8 +1,8 @@
 from django.shortcuts import render
 
 soups = [
-    {'name': 'Clam Chowder', 'Origin': 'Boudin SF', 'ingredients': ['Clams', 'Potatoes', 'Sourdough']},
-    {'name': 'Pho', 'Origin': 'Homemade', 'ingredients': ['Flank Steak', 'Rice Noodles', 'Bean Sprouts']},
+    {'name': 'Clam Chowder', 'origin': 'Boudin SF', 'ingredients': ['Clams', 'Potatoes', 'Sourdough']},
+    {'name': 'Pho', 'origin': 'Homemade', 'ingredients': ['Flank Steak', 'Rice Noodles', 'Bean Sprouts']},
 ]
 
 # Create your views here.

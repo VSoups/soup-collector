@@ -1,11 +1,11 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h1>All Soups</h1>
+<h1 class="title is-1">All Soups</h1>
 
 <div class="soup-list">
     {% for soup in soups %}
-        <div class="soup">
+        <div class="soup box">
             <span class="soup-name">{{ soup.name }}</span>
             <p>Origin: {{ soup.origin }}</p>
             <p>Ingredients:</p>

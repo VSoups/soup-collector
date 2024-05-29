@@ -1,4 +1,3 @@
-<!-- Load not displaying static -->
 {% load static %}
 
 <!DOCTYPE html>
@@ -7,15 +6,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Soup Collector</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
     <header>
-        <nav>
+        <nav class="navbar">
             <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/about">About</a></li>
-                <li><a href="/soups">All Soups</a></li>
+                <li class="navbar-item"><a href="/">Home</a></li>
+                <li class="navbar-divider"></li>
+                <li class="navbar-item"><a href="/about">About</a></li>
+                <li class="navbar-divider"></li>
+                <li class="navbar-item"><a href="/soups">All Soups</a></li>
             </ul>
         </nav>
     </header>
@@ -23,8 +25,8 @@
         {% block content %}
         {% endblock %}
     </main>
-    <footer>
-        <p>Test footer</p>
+    <footer class="footer" id="footer-content">
+        <p>Soup Collector&#8482; 2024</p><br />
     </footer>
 </body>
 </html>
