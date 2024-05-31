@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1 class="title is-1">Delete Soup</h1>
+
+<section id="soup-del-form">
+    <h4 class="title is-6">Are you sure you want to delete {{ object.name }}?</h4>
+    <form action="" method="POST">
+        {% csrf_token %}
+        <a href="{% url 'detail' object.id %}" class="button is-info">Cancel</a>
+        <button type="submit" class="button is-danger">Delete</button>
+    </form>
+</section>
+
+{% endblock %}

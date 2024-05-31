@@ -7,6 +7,8 @@
     <p>Origin: {{ soup.origin }}</p>
     <p>Temperature: {{ soup.temperature }}</p>
     <p>Broth: {{ soup.broth }}</p>
+    <a href="{% url 'update_soup' soup.id %}" class="button is-info">Edit</a>
+    <a href="{% url 'delete_soup' soup.id %}" class="button is-danger">Delete</a>
 </div>
 
 {% endblock %}

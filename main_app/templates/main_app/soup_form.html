@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+
+{% if object %}
+    <h1 class="title is-1">Edit {{ soup.name }}</h1>
+{% else %}
+    <h1 class="title is-1">Add Soup</h1>
+{% endif %}
+
+<form action="" method="POST" class="box" id="create_edit_form">
+    {% csrf_token %}
+    <table>
+        {{ form.as_table }}
+    </table>
+    <input type="submit" value="Submit" class="button is-success">
+</form>
+
+{% endblock %}

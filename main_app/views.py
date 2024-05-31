@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Soup
 
 # soups = [
@@ -25,3 +26,16 @@ def soup_detail(request, soup_id):
     return render(request, 'soups/detail.html', {
         'soup': soup,
     })
+
+class soup_create(CreateView):
+    model = Soup
+    fields = '__all__'
+    success_url = '/soups/{id}'
+
+class soup_update(UpdateView):
+    model = Soup
+    fields = ['origin', 'temperature', 'broth']
+
+class soup_delete(DeleteView):
+    model = Soup
+    success_url = '/soups'

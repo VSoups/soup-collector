@@ -47,3 +47,23 @@ h3 {
 .soup-detail {
     margin: 0 auto;
 }
+
+#create_edit_form {
+    margin: 0 auto;
+}
+
+table {
+    margin-bottom: 10px;
+}
+
+th, td {
+    padding: 5px
+}
+
+#soup-del-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3rem;
+}
