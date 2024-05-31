@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Soup
+from .forms import MealForm
 
 # soups = [
 #     {'name': 'Clam Chowder', 'origin': 'Boudin SF', 'ingredients': ['Clams', 'Potatoes', 'Sourdough']},
@@ -23,8 +24,10 @@ def soup_index(request):
 
 def soup_detail(request, soup_id):
     soup = Soup.objects.get(id = soup_id)
+    meal_form = MealForm()
     return render(request, 'soups/detail.html', {
         'soup': soup,
+        'meal_form': meal_form,
     })
 
 class soup_create(CreateView):
@@ -39,3 +42,13 @@ class soup_update(UpdateView):
 class soup_delete(DeleteView):
     model = Soup
     success_url = '/soups'
+
+def add_meal(request, soup_id):
+    meal_form = MealForm(request.POST)
+
+    if meal_form.is_valid():
+        new_meal = meal_form.save(commit=False)
+        new_meal.soup_id = soup_id
+        new_meal.save()
+    
+    return redirect('detail', soup_id=soup_id)

@@ -11,4 +11,35 @@
     <a href="{% url 'delete_soup' soup.id %}" class="button is-danger">Delete</a>
 </div>
 
+<div class="meal-detail box">
+    <form action="{% url 'add_meal' soup.id %}" method="POST">
+        {% csrf_token %}
+        {{ meal_form.as_p }}
+        <button class="button is-success">Add Meal</button>
+    </form>
+    <table>
+        <thead>
+            <tr>
+                <th>Rating</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for meal in soup.meal_set.all %}
+                <tr>
+                    <td>{{ meal.get_rating_display }}</td>
+                    <td>{{ meal.date }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<script>
+    const dateEl = document.getElementById('id_date');
+    if (dateEl) {
+        dateEl.type = 'date';
+    }
+</script>
+
 {% endblock %}

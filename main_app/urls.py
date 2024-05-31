@@ -9,4 +9,5 @@ urlpatterns = [
     path('soups/create/', views.soup_create.as_view(), name='add_soup'),
     path('soups/<int:pk>/update/', views.soup_update.as_view(), name='update_soup'),
     path('soups/<int:pk>/delete/', views.soup_delete.as_view(), name='delete_soup'),
+    path('soups/<int:soup_id>/add_meal/', views.add_meal, name='add_meal'),
 ]

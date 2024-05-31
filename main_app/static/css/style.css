@@ -60,10 +60,14 @@ th, td {
     padding: 5px
 }
 
-#soup-del-form {
+#soup-del-form, #meal-detail {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 3rem;
+    margin: 3rem auto 0;
+}
+
+#meal-detail > table {
+    width: 100%;
 }
