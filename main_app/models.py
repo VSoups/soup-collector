@@ -38,3 +38,5 @@ class Meal(models.Model):
     def __str__(self):
         return f"Rating: {self.get_rating_display()} on {self.date}"
     
+    class Meta:
+        ordering = ['-date']
