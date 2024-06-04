@@ -6,8 +6,15 @@
     width: 100%;
     text-align: right;
 }
+
+.footer {
+    padding: 1rem;
+}
     
 #nav-bar {
+    position: absolute;
+    top: 5px;
+    left: 10px;
     display: flex;
     flex-direction: row;
     justify-content: end;
@@ -17,6 +24,7 @@
 
 h1 {
     text-align: center;
+    margin-top: 8rem;
 }
 
 h3 {
@@ -48,6 +56,10 @@ h3 {
     margin: 0 auto;
 }
 
+.soup-detail > * {
+    margin-bottom: 8px;
+}
+
 #create_edit_form {
     margin: 0 auto;
 }
@@ -60,7 +72,7 @@ th, td {
     padding: 5px
 }
 
-#soup-del-form, #meal-detail {
+#soup-del-form, .meal-detail {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -68,6 +80,35 @@ th, td {
     margin: 3rem auto 0;
 }
 
+.meal-detail > form > * {
+    margin-bottom: 10px;
+}
+
 #meal-detail > table {
     width: 100%;
+}
+
+.ing-list {
+    margin: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.ing-details, .ing-form {
+    margin: 2rem auto;
+}
+
+.ing-form > *, .ing-details > * {
+    margin-bottom: 5px;
+}
+
+.ing-delete-form {
+    margin: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }

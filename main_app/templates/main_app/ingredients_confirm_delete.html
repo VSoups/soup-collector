@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1 class="title is-1">Delete Ingredient</h1>
+
+<section class="ing-delete-form">
+    <h4 class="title is-6">Are you sure you want to delete {{ object.name }}?</h4>
+    <form action="{% url 'del_ing' object.id %}" method="POST">
+        {% csrf_token %}
+        <a href="{% url 'ing_detail' object.id %}" class="button is-info">Cancel</a>
+        <button type="submit" class="button is-danger">Delete</button>
+    </form>
+</section>
+
+
+{% endblock %}

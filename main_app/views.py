@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from .models import Soup
+from .models import Soup, Ingredients
 from .forms import MealForm
 
 # soups = [
@@ -52,3 +52,24 @@ def add_meal(request, soup_id):
         new_meal.save()
     
     return redirect('detail', soup_id=soup_id)
+
+def ing_index(request):
+    ingredients = Ingredients.objects.all()
+    return render(request, 'main_app/ing_list.html', { 'ingredients': ingredients })
+
+def ing_detail(request, ing_id):
+    ingredient = Ingredients.objects.get(id=ing_id)
+    return render(request, 'main_app/ing_detail.html', { 'ingredient': ingredient })
+
+class ing_create(CreateView):
+    model = Ingredients
+    fields = '__all__'
+    success_url = '/ingredients/{id}'
+
+class ing_edit(UpdateView):
+    model = Ingredients
+    fields = ['name', 'food_group']
+
+class ing_delete(DeleteView):
+    model = Ingredients
+    success_url = '/ingredients'

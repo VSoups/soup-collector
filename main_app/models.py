@@ -11,11 +11,22 @@ MEAL_RATINGS = [
     ('FI', 5),
 ]
 
+class Ingredients(models.Model):
+    name = models.CharField(max_length=100)
+    food_group = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.name
+    
+    def get_absolute_url(self):
+        return reverse('ing_detail', kwargs={'ing_id': self.id})
+
 class Soup(models.Model):
     name = models.CharField(max_length=100)
     origin = models.CharField(max_length=100)
     temperature = models.CharField(max_length=100)
     broth = models.CharField(max_length=100)
+    ingredients = models.ManyToManyField(Ingredients)
 
     def __str__(self):
         return f'{self.name} - {self.id}'
@@ -24,7 +35,7 @@ class Soup(models.Model):
     def get_absolute_url(self):
         # 'reverse' allows the use of the url template from urls.py
         return reverse('detail', kwargs={'soup_id': self.id})
-    
+
 class Meal(models.Model):
     date = models.DateField('meal date')
     rating = models.CharField(

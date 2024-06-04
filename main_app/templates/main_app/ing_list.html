@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1 class="title is-1">All ingredients</h1>
+
+<section class="ing-list">
+    {% for i in ingredients %}
+        <a href="{% url 'ing_detail' i.id %}">
+            <div class="box">
+                <h3>{{ i.name }}</h3>
+            </div>
+        </a>
+    {% endfor %}
+</section>
+
+{% endblock %}

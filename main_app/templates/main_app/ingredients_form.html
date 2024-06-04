@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+
+{% if object %}
+    <h1 class="title is-1">{{ object.name }}</h1>
+{% else %}
+    <h1 class="title is-1">Add Ingredient</h1>
+{% endif %}
+
+<form action="{% url 'edit_ing' object.id %}" method="POST" class="box ing-form">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class="button is-success">Add</button>
+</form>
+
+{% endblock %}
