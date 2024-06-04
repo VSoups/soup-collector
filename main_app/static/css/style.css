@@ -22,6 +22,10 @@
     margin-right: 10px;
 }
 
+hr {
+    margin: 4rem 0;
+}
+
 h1 {
     text-align: center;
     margin-top: 8rem;
@@ -72,12 +76,20 @@ th, td {
     padding: 5px
 }
 
-#soup-del-form, .meal-detail {
+#soup-del-form {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     margin: 3rem auto 0;
+}
+
+.meal-detail {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
 }
 
 .meal-detail > form > * {
@@ -101,8 +113,15 @@ th, td {
     margin: 2rem auto;
 }
 
-.ing-form > *, .ing-details > * {
+.ing-details > * {
     margin-bottom: 5px;
+}
+
+.ing-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .ing-delete-form {
@@ -111,4 +130,27 @@ th, td {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.soup-extras {
+    display: grid;
+    grid-template-columns: 1.25fr 1fr;
+    margin: 4rem 20vmin;
+}
+
+.soup-ings, .add-ing, .soup-ing-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.soup-assoc {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.ing-item-add > *, .ing-item-rem > * {
+    margin: 0.5rem auto;
 }

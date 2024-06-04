@@ -10,30 +10,66 @@
     <a href="{% url 'update_soup' soup.id %}" class="button is-info">Edit</a>
     <a href="{% url 'delete_soup' soup.id %}" class="button is-danger">Delete</a>
 </div>
-
-<div class="meal-detail box">
-    <form action="{% url 'add_meal' soup.id %}" method="POST">
-        {% csrf_token %}
-        {{ meal_form.as_p }}
-        <button class="button is-success">Add Meal</button>
-    </form>
-    <table>
-        <thead>
-            <tr>
-                <th>Rating</th>
-                <th>Date</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for meal in soup.meal_set.all %}
+<hr />
+<section class="soup-extras">
+    <section class="soup-assoc">
+        <div class="soup-ing-list">
+            <h3 class="title is-5">Soup Ingredients</h3>
+            {% if soup.ingredients.count %}
+                {% for i in soup.ingredients.all %}
+                    <div class="ing-item-rem box">
+                        <p class="title is-6">{{ i.name }}</p>
+                        <p>{{ i.food_group }}</p>
+                        <form action="{% url 'unassoc_ing' soup.id i.id %}" method="DELETE">
+                            <button type="submit" class="button is-danger">Remove</button>
+                        </form>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <p>No Ingredients added yet</p>
+            {% endif %}
+        </div>
+        <div class="add-ing">
+            <h3 class="title is-5">Add Ingredients</h3>
+            {% if ingredients.count %}
+                {% for ing in ingredients.all %}
+                    <!-- Add association form -->
+                    <form action="{% url 'assoc_ing' soup.id ing.id %}" method="POST" class="ing-item-add box">
+                        {% csrf_token %}
+                        <p class="title is-6">{{ ing.name }}</p>
+                        <p>{{ ing.food_group }}</p>
+                        <button type="submit" class="button is-success">Add</button>
+                    </form>
+                {% endfor %}
+            {% else %}
+                <p style="text-align: center;">Nothing else to add<br />Create more ingredients <a href="{% url 'add_ing' %}">here</a></p>
+            {% endif %}
+        </div>
+    </section>
+    <div class="meal-detail box">
+        <form action="{% url 'add_meal' soup.id %}" method="POST">
+            {% csrf_token %}
+            {{ meal_form.as_p }}
+            <button class="button is-success">Add Meal</button>
+        </form>
+        <table>
+            <thead>
                 <tr>
-                    <td>{{ meal.get_rating_display }}</td>
-                    <td>{{ meal.date }}</td>
+                    <th>Rating</th>
+                    <th>Date</th>
                 </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-</div>
+            </thead>
+            <tbody>
+                {% for meal in soup.meal_set.all %}
+                    <tr>
+                        <td>{{ meal.get_rating_display }}</td>
+                        <td>{{ meal.date }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</section>
 
 <script>
     const dateEl = document.getElementById('id_date');

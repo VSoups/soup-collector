@@ -7,9 +7,11 @@
     <h1 class="title is-1">Add Ingredient</h1>
 {% endif %}
 
-<form action="{% url 'edit_ing' object.id %}" method="POST" class="box ing-form">
+<form action="" method="POST" class="box ing-form">
     {% csrf_token %}
-    {{ form.as_p }}
+    <table>
+        {{ form.as_table }}
+    </table>
     <button class="button is-success">Add</button>
 </form>
 

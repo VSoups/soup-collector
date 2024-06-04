@@ -24,10 +24,13 @@ def soup_index(request):
 
 def soup_detail(request, soup_id):
     soup = Soup.objects.get(id = soup_id)
+    soup_ings = soup.ingredients.all().values_list('id')
+    excluded_ings = Ingredients.objects.exclude(id__in=soup_ings)
     meal_form = MealForm()
     return render(request, 'soups/detail.html', {
         'soup': soup,
         'meal_form': meal_form,
+        'ingredients': excluded_ings
     })
 
 class soup_create(CreateView):
@@ -73,3 +76,11 @@ class ing_edit(UpdateView):
 class ing_delete(DeleteView):
     model = Ingredients
     success_url = '/ingredients'
+
+def assoc_ing(request, soup_id, ing_id):
+    Soup.objects.get(id=soup_id).ingredients.add(ing_id)
+    return redirect('detail', soup_id=soup_id)
+
+def unassoc_ing(request, soup_id, ing_id):
+    Soup.objects.get(id=soup_id).ingredients.remove(ing_id)
+    return redirect('detail', soup_id=soup_id)

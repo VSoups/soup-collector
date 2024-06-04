@@ -14,5 +14,7 @@ urlpatterns = [
     path('ingredients/<int:ing_id>/', views.ing_detail, name='ing_detail'),
     path('ingredients/create', views.ing_create.as_view(), name='add_ing'),
     path('ingredients/<int:pk>/edit/', views.ing_edit.as_view(), name='edit_ing'),
-    path('ingredients/<int:pk>/delete/', views.ing_delete.as_view(), name='del_ing')
+    path('ingredients/<int:pk>/delete/', views.ing_delete.as_view(), name='del_ing'),
+    path('soups/<int:soup_id>/assoc_ingredients/<int:ing_id>/', views.assoc_ing, name='assoc_ing'),
+    path('soups/<int:soup_id>/unassoc_ingredients/<int:ing_id>/', views.unassoc_ing, name='unassoc_ing'),
 ]
