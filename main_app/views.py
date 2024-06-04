@@ -32,7 +32,7 @@ def soup_detail(request, soup_id):
 
 class soup_create(CreateView):
     model = Soup
-    fields = '__all__'
+    fields = ['name', 'origin', 'temperature', 'broth']
     success_url = '/soups/{id}'
 
 class soup_update(UpdateView):
